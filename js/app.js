@@ -29,6 +29,13 @@ class Enemy {
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
+// Create 5 enemy objects to store in the allEnemies Array
+let allEnemies = [];
+for (let i = 0; i < 5; i++) {
+  let enemyBug = new Enemy();
+  allEnemies.push(enemyBug);
+}
+
 // Place the player object in a variable called player
 
 // This listens for key presses and sends the keys to your
