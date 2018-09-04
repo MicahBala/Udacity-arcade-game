@@ -1,8 +1,11 @@
 // Enemies our player must avoid
 class Enemy {
-  constructor() {
+  constructor(x, y, speed) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
+    this.x = x;
+    this.y = y;
+    this.speed = speed;
 
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
@@ -15,6 +18,14 @@ class Enemy {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
+    this.x = this.x + this.speed * dt;
+
+    // Once bugs reach the end of the canvas, the x position
+    // is reset to its initial value of -100, so bugs start coming again from
+    // the begining of the canvas
+    if (this.x > 600) {
+      this.x = -100;
+    }
   }
 
   // Draw the enemy on the screen, required method for game
@@ -25,25 +36,37 @@ class Enemy {
 
 // Now write your own player class
 class Player {
-  constructor() {}
+  constructor() {
+    this.x = 200;
+    this.y = 405;
 
-  // This class requires an update(), render() and
+    this.sprite = 'images/char-boy.png';
+  }
+
+  // This class requires an update()  , render() and
   // a handleInput() method.
   update() {}
 
-  render() {}
+  render() {
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+  }
 
   handleInput() {}
 }
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
-// Create 5 enemy objects to store in the allEnemies Array
+// Create 4 enemy objects to store in the allEnemies Array
 let allEnemies = [];
-for (let i = 0; i < 5; i++) {
-  let enemyBug = new Enemy();
-  allEnemies.push(enemyBug);
-}
+
+// Create an IIFE and pass to it a value of -100 corresponding to the initial x position of the enemy bugs
+// these bugs are pushed into the alleEnemies array
+(function createEnemy(x) {
+  allEnemies.push(new Enemy(x, 55, 150));
+  allEnemies.push(new Enemy(x, 150, 300));
+  allEnemies.push(new Enemy(x, 235, 200));
+  allEnemies.push(new Enemy(x, 320, 250));
+})(-100);
 
 // Place the player object in a variable called player
 player = new Player();
