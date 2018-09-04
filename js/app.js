@@ -1,10 +1,11 @@
 // Enemies our player must avoid
 class Enemy {
   constructor(x, y, speed) {
-    // Variables applied to each of our instances go here,
-    // we've provided one for you to get started
+    // Enemy bug Position x-axis
     this.x = x;
+    // Enemy Bug Position y-axis
     this.y = y;
+    // Enemy bug speed of movement
     this.speed = speed;
 
     // The image/sprite for our enemies, this uses
@@ -36,22 +37,45 @@ class Enemy {
 
 // Now write your own player class
 class Player {
-  constructor() {
-    this.x = 200;
-    this.y = 405;
+  constructor(x, y, moveX, moveY) {
+    // Player position x-axis
+    this.x = x;
+    // Player position y-axis
+    this.y = y;
+
+    // Player movement acros x-axis and y-axis
+    this.moveX = moveX;
+    this.moveY = moveY;
 
     this.sprite = 'images/char-boy.png';
   }
 
   // This class requires an update()  , render() and
   // a handleInput() method.
-  update() {}
+  update() {
+    // Once i use this method to move the player, the player runs off rapidly without control
+    // each time any of the arrow key is pressed
+  }
 
   render() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
   }
 
-  handleInput() {}
+  handleInput(pressedKey) {
+    // Keep the player movements within the canvas width and height
+    if (pressedKey == 'right' && this.x < 500) {
+      this.x += this.moveX;
+    }
+    if (pressedKey == 'left' && this.x > 0) {
+      this.x -= this.moveX;
+    }
+    if (pressedKey == 'up' && this.y > 0) {
+      this.y -= this.moveY;
+    }
+    if (pressedKey == 'down' && this.y < 410) {
+      this.y += this.moveY;
+    }
+  }
 }
 
 // Now instantiate your objects.
@@ -69,11 +93,11 @@ let allEnemies = [];
 })(-100);
 
 // Place the player object in a variable called player
-player = new Player();
+player = new Player(200, 405, 30, 30);
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
-document.addEventListener('keyup', function(e) {
+document.addEventListener('keydown', function(e) {
   var allowedKeys = {
     37: 'left',
     38: 'up',
