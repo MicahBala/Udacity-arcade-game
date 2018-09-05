@@ -8,6 +8,8 @@ class Enemy {
     // Enemy bug speed of movement
     this.speed = speed;
 
+    let counter = 0;
+
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
@@ -26,6 +28,19 @@ class Enemy {
     // the begining of the canvas
     if (this.x > 600) {
       this.x = -100;
+    }
+
+    // handle collision
+    if (
+      player.x < this.x + 55 &&
+      player.x + 55 > this.x &&
+      player.y < this.y + 50 &&
+      player.y + 50 > this.y
+    ) {
+      // alert('Collision Detected');
+      collisionDetected();
+      player.x = 200;
+      player.y = 405;
     }
   }
 
@@ -94,6 +109,10 @@ let allEnemies = [];
 
 // Place the player object in a variable called player
 player = new Player(200, 405, 30, 30);
+
+function collisionDetected() {
+  alert('Collission Detected!');
+}
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
