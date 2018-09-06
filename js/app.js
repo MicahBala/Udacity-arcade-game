@@ -8,8 +8,6 @@ class Enemy {
     // Enemy bug speed of movement
     this.speed = speed;
 
-    let counter = 0;
-
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
@@ -39,9 +37,10 @@ class Enemy {
     ) {
       // alert('Collision Detected');
       collisionDetected();
-      player.x = 200;
-      player.y = 405;
+      // resetGame();
     }
+
+    success();
   }
 
   // Draw the enemy on the screen, required method for game
@@ -110,8 +109,53 @@ let allEnemies = [];
 // Place the player object in a variable called player
 player = new Player(200, 405, 30, 30);
 
+let levelCount = 0;
+let hitCount = 0;
+let hit = document.querySelector('.message');
+
+// Handleandle collisions btw player and enemies
 function collisionDetected() {
-  alert('Collission Detected!');
+  if (hitCount == 4) {
+    hit.textContent = 'Game Over';
+    // alert('Game Over');
+    // resetGame();
+    player.x = 1000;
+    player.y = 1000;
+  } else {
+    hit.textContent = 'Sorry, Start Again!!';
+    resetGame();
+  }
+
+  hit.classList.add('show');
+  setTimeout(function() {
+    hit.classList.remove('show');
+    hit.classList.add('hide');
+  }, 1000);
+}
+
+// When player successfully crosses to the water
+// Bring him back to starting point - grass and increase Game level
+function success() {
+  if (player.y <= 15) {
+    hit.textContent = 'Weldone...next Level';
+    hit.classList.add('show');
+    setTimeout(function() {
+      hit.classList.remove('show');
+      hit.classList.add('hide');
+    }, 3000);
+    hitCount = 0;
+    resetGame();
+    // console.log('Successful!!!');
+  }
+}
+
+// Reset Game
+function resetGame() {
+  // Reset player position
+  player.x = 205;
+  player.y = 405;
+  hitCount++;
+  // console.log(hitCount);
 }
 
 // This listens for key presses and sends the keys to your
