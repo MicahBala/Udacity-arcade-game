@@ -1,6 +1,33 @@
-frontend-nanodegree-arcade-game
-===============================
+# Udacity Student Project - Arcade Game.
 
-Students should use this [rubric](https://review.udacity.com/#!/projects/2696458597/rubric) for self-checking their submission. Make sure the functions you write are **object-oriented** - either class functions (like Player and Enemy) or class prototype functions such as Enemy.prototype.checkCollisions, and that the keyword 'this' is used appropriately within your class and class prototype functions to refer to the object the function is called upon. Also be sure that the **readme.md** file is updated with your instructions on both how to 1. Run and 2. Play your arcade game.
+## Introduction
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+This game is part of the Udacity Project for the completion of the Froned Web Development Nanodegree. The game is developed using HTML, CSS and Pure JavaScript.
+
+## Playing the Game
+
+There are enemy bugs crossing the screen at varying speeds, a player standing at the bottom of the screen (green grass area) waiting to cross to the top (blue water area).
+
+Use the arrow keys on the keyboard to move the player left, right, up or down to successfully cross the screen from the green grass area to the top water blue area without colliding with the enemy bugs. Once there is a collision beteen the enemy bugs and the player, the player is moved to the starting point to start again.
+
+## Winning The Game
+
+Upon successful crossing, the player gets a weldone message, and is returned to start again at another level. But if the player collides with the enemy bugs 5 times, it is game over.
+
+## READY? LET'S PLAY!
+
+- [The Udacity Arcade Game](https://MicahBala.github.io/arcade-game).
+
+## Acknowledgements
+
+AS A part of the guide to developing the game, i consulted:
+
+- Mentors on the Udacity Classroom
+- Fellow course mates
+- https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection provided the logic for collision detection
+- https://developer.mozilla.org/en-US/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript helped me understand the logic behind the game
+- https://www.youtube.com/watch?v=oLSu3zc2jSA helped me understand the game engine.
+
+## Author
+
+- Micah Yunana Bala

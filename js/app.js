@@ -39,7 +39,6 @@ class Enemy {
       collisionDetected();
       // resetGame();
     }
-
     success();
   }
 
@@ -57,7 +56,7 @@ class Player {
     // Player position y-axis
     this.y = y;
 
-    // Player movement acros x-axis and y-axis
+    // Change in Player movement acros x-axis and y-axis
     this.moveX = moveX;
     this.moveY = moveY;
 
@@ -66,6 +65,7 @@ class Player {
 
   // This class requires an update()  , render() and
   // a handleInput() method.
+
   update() {
     // Once i use this method to move the player, the player runs off rapidly without control
     // each time any of the arrow key is pressed
@@ -119,6 +119,7 @@ function collisionDetected() {
     hit.textContent = 'Game Over';
     // alert('Game Over');
     // resetGame();
+    // Puts the player off screen to signify Game Over after 4 collisions
     player.x = 1000;
     player.y = 1000;
   } else {
