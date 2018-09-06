@@ -16,7 +16,11 @@ Upon successful crossing, the player gets a weldone message, and is returned to 
 
 ## READY? LET'S PLAY!
 
-- [The Udacity Arcade Game](https://MicahBala.github.io/arcade-game).
+- [The Udacity Arcade Game](https://MicahBala.github.io/).
+
+## Download/Clone The Game and Run Locally
+
+Visit the link https://github.com/MicahBala/micahbala.github.io click on the green button (labeled Clone or Download ) at the top right corner of the screen to download a zipped folder of the entire application or copy a clone link. Once you get the folder on a local system, Unzip the folder and double click to run the index.html file.
 
 ## Acknowledgements
 

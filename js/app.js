@@ -1,3 +1,4 @@
+'use strict';
 // Enemies our player must avoid
 class Enemy {
   constructor(x, y, speed) {
@@ -99,15 +100,15 @@ let allEnemies = [];
 
 // Create an IIFE and pass to it a value of -100 corresponding to the initial x position of the enemy bugs
 // these bugs are pushed into the alleEnemies array
-(function createEnemy(x) {
-  allEnemies.push(new Enemy(x, 55, 150));
-  allEnemies.push(new Enemy(x, 150, 300));
-  allEnemies.push(new Enemy(x, 235, 200));
-  allEnemies.push(new Enemy(x, 320, 250));
-})(-100);
+(function createEnemy() {
+  allEnemies.push(new Enemy(-100, 55, 150));
+  allEnemies.push(new Enemy(100, 150, 300));
+  allEnemies.push(new Enemy(100, 235, 200));
+  allEnemies.push(new Enemy(-100, 320, 250));
+})();
 
 // Place the player object in a variable called player
-player = new Player(200, 405, 30, 30);
+let player = new Player(200, 405, 30, 30);
 
 let levelCount = 0;
 let hitCount = 0;
